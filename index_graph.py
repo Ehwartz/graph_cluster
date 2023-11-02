@@ -201,57 +201,17 @@ if __name__ == '__main__':
             # print((torch.argmax(ys[c], dim=-1)))
         print(len(clusters))
         print('\n\n\n')
-    #
-    # spliced_img = splice_cluster_images(graph.clusters, xs, 40, (28, 28)) * 255
-    # cv2.imwrite('./clusters/clusters0.png', spliced_img)
-    # cv2.imshow('img', spliced_img)
-    # cv2.waitKey(0)
 
-    #
-    # for k in range(1, 10):
-    #     xs, ys, indices = dataset.filter(labels=[k])[:1000]
-    #     graph = IndexGraph(data=(xs, ys), dist_func=euc_dist)
-    #     clusters = graph.cluster()
-    #     clusters = graph.refine()
-    #     spliced_img = splice_cluster_images(graph.clusters, xs, 40, (28, 28)) * 255
-    #     cv2.imwrite(f'./clusters/2clusters{k}.png', spliced_img)
-    #     cv2.imshow('img', spliced_img)
-    #     cv2.waitKey(0)
+    for k in range(1, 10):
+        xs, ys, indices = dataset.filter(labels=[k])[:1000]
+        graph = IndexGraph(data=(xs, ys), dist_func=euc_dist)
+        clusters = graph.cluster()
+        clusters = graph.refine()
+        spliced_img = splice_cluster_images(graph.clusters, xs, 40, (28, 28)) * 255
+        cv2.imwrite(f'./clusters/2clusters{k}.png', spliced_img)
+        cv2.imshow('img', spliced_img)
+        cv2.waitKey(0)
 
 
 
     # clusters_img_show(xs, graph.clusters)
-    # centers = [torch.tensor([0, 2, 3]),
-    #            torch.tensor([2, 0, 3]),
-    #            torch.tensor([1, 5, 3]),
-    #            torch.tensor([5, 7, 3]),
-    #            torch.tensor([9, 3, 2])]
-    #
-    # data = (data_init(centers=centers, n=100, r=0.3), 0)
-    # print(data[0])
-    # graph = IndexGraph(data, dist_func=cos_dist)
-    # # graph = IndexGraph(data, dist_func=euc_dist)
-    # # print(graph.adj_matrix)
-    #
-    # clusters = graph.cluster()
-    # for c in clusters:
-    #     print(c)
-    # print('\n\n\n')
-    #
-    # clusters = graph.refine()
-    # for c in clusters:
-    #     print(len(c))
-    #     print(c)
-    # print('\n\n\n')
-    #
-    # clusters = graph.refine()
-    # for c in clusters:
-    #     print(len(c))
-    #     print(c)
-    # print('\n\n\n')
-    #
-    # clusters = graph.refine()
-    # for c in clusters:
-    #     print(len(c))
-    #     print(c)
-    # print('\n\n\n')
